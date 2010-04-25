@@ -1,4 +1,3 @@
-
 class Rails::ExtJS::Direct::RemotingProvider
     def initialize(app, rpath)
         if app.kind_of?(String)
@@ -21,7 +20,7 @@ class Rails::ExtJS::Direct::RemotingProvider
     def call(env)
         
         
-        if env["PATH_INFO"].match("^"+@router_path)
+        if !env["PATH_INFO"].nil? && env["PATH_INFO"].match("^"+@router_path)
             output = []
             
             # Rails3 changed where request params are located:
